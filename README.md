@@ -5,7 +5,7 @@
 `npm run dev`
 ### Step2: Configure the middleware on your server
 
-Create `keepalive.middleware.js` 
+Create `middleware/keepalive.middleware.js` 
 
 ```bash
 const axios = require('axios');
