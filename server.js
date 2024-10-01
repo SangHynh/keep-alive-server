@@ -20,7 +20,7 @@ app.get('/', (req, res) => {
   res.send('Your server has been hacked!');
 });
 
-// Gửi request đến server khác mỗi 5 giây
+// Gửi request đến server khác mỗi 5 phút
 setInterval(async () => {
   try {
     const response = await axios.get(process.env.KEEP_ALIVE_URL);
@@ -28,7 +28,7 @@ setInterval(async () => {
   } catch (error) {
     console.error('Error receiving keep-alive request:', error.message);
   }
-}, keepAliveInterval); // Gửi yêu cầu mỗi 5 giây
+}, keepAliveInterval); // Gửi yêu cầu mỗi 5 phút
 
 app.listen(PORT, () => {
   console.log(`Server is running on port ${PORT}`);
