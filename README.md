@@ -1,6 +1,10 @@
 # ENSURE CONNECTION STAYS ACTIVE FOR FREE RENDER DEPLOYMENT
 ## START THIS SERVER ALONG WITH THE SERVER YOU WANT TO KEEP ALIVE
 
+### Step1. Run keep-alive-server
+`npm run dev`
+### Step2: Configure the middleware on your server
+
 Create `keepalive.middleware.js` 
 
 ```bash
@@ -27,5 +31,16 @@ require("dotenv").config();
 const keepAliveMiddleware = require("./middlewares/keepalive.middleware");
 
 const app = express();
+
+// Use the keep-alive middleware
 app.use(keepAliveMiddleware);
+
+// Start your server
+const PORT = process.env.PORT || 5000;
+app.listen(PORT, () => {
+  console.log(`Server is running on port ${PORT}`);
+});
+
 ```
+### Step 3: Run your server and wait to be hacked
+
